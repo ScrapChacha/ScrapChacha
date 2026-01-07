@@ -15,7 +15,7 @@
     <style>
         /* --- CSS VARIABLES & RESET --- */
         :root {
-            --primary-green: #00C853; /* Vibrant Green for Brand */
+            --primary-green: #00C853;
             --dark-green: #2E7D32;
             --text-dark: #1a1a1a;
             --text-gray: #666;
@@ -139,7 +139,7 @@
 
         /* --- PAGE SECTIONS (SPA LOGIC) --- */
         section {
-            display: none; /* Hidden by default */
+            display: none;
             padding: 60px 0;
             animation: fadeIn 0.5s ease;
         }
@@ -463,10 +463,13 @@
             border-radius: 50%;
             margin-right: 10px;
             transition: 0.3s;
+            text-decoration: none;
+            color: white;
         }
 
         .social-icons a:hover {
             background: var(--primary-green);
+            color: white;
         }
 
         .copyright {
@@ -551,6 +554,20 @@
             text-align: center;
         }
 
+        .btn-backup {
+            background-color: #2196F3;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn-backup:hover { background-color: #0b7dda; }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .nav-links {
@@ -590,7 +607,7 @@
     <header>
         <div class="container nav-wrapper">
             <div class="brand-logo" onclick="app.navTo('home')">
-                <!-- Logo Image from User Prompt -->
+                <!-- Logo Image -->
                 <img src="https://z-cdn-media.chatglm.cn/files/97b4caf1-18b0-470a-acb3-b71167ac58a1.png?auth_key=1867685745-750a34f35f924f8b854399d28c5ce12a-0-3a23f197109c933430237d541f361f88" alt="ScrapChacha Character" class="logo-img">
                 <div class="logo-text">
                     <span class="logo-scrap">SCRAP</span>
@@ -605,7 +622,6 @@
                 <li><a href="#" onclick="app.navTo('about')">About Us</a></li>
                 <li><a href="#" onclick="app.navTo('blog')">Blog</a></li>
                 <li><a href="#" onclick="app.navTo('contact')">Contact</a></li>
-                <!-- Updated WhatsApp Link -->
                 <li><a href="https://wa.me/923103863309" target="_blank" class="nav-btn"><i class="fab fa-whatsapp"></i> Book Now</a></li>
             </ul>
 
@@ -728,7 +744,7 @@
                     </div>
                     <div class="form-group">
                         <label>Phone Number (WhatsApp)</label>
-                        <input type="tel" id="p_phone" required placeholder="0300 1234567">
+                        <input type="tel" id="p_phone" required placeholder="03103863309">
                     </div>
                     <div class="form-group">
                         <label>Pickup Address</label>
@@ -819,22 +835,18 @@
             </div>
         </section>
 
-        <!-- CONTACT SECTION (UPDATED WITH NEW DETAILS) -->
+        <!-- CONTACT SECTION -->
         <section id="contact">
             <div class="section-title">
                 <h2>Contact Us</h2>
                 <p>We are here to help you.</p>
             </div>
             <div class="form-wrapper" style="text-align: center;">
-                <!-- Updated Phone -->
                 <p style="margin-bottom: 20px;"><i class="fas fa-phone-alt" style="color: var(--primary-green);"></i> 03103863309</p>
-                <!-- Updated WhatsApp -->
                 <p style="margin-bottom: 20px;"><i class="fab fa-whatsapp" style="color: var(--primary-green);"></i> 03103863309</p>
-                <!-- Updated Email -->
                 <p style="margin-bottom: 20px;"><i class="fas fa-envelope" style="color: var(--primary-green);"></i> scrapchacha20@gmail.com</p>
                 <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
                 <h3>Our Location</h3>
-                <!-- Updated Address -->
                 <div style="margin-top: 20px; background: #eee; height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 8px;">
                     <i class="fas fa-map-marker-alt" style="font-size: 40px; color: #555; margin-bottom: 10px;"></i>
                     <p style="color: #333; font-weight: 600;">Unit no 6 Latifabad Hyderabad</p>
@@ -854,8 +866,15 @@
                 </div>
 
                 <div id="admin-requests">
-                    <h3>Recent Pickup Requests</h3>
-                    <div style="overflow-x: auto; margin-top: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3>Recent Pickup Requests</h3>
+                        <!-- BACKUP BUTTON -->
+                        <button class="btn-backup" onclick="app.downloadBackup()">
+                            <i class="fas fa-download"></i> Download Backup (CSV)
+                        </button>
+                    </div>
+                    
+                    <div style="overflow-x: auto;">
                         <table class="rates-table">
                             <thead>
                                 <tr>
@@ -901,7 +920,7 @@
 
     </main>
 
-    <!-- Footer (UPDATED WITH NEW DETAILS) -->
+    <!-- Footer (Updated with Specific Links) -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -924,10 +943,10 @@
                         <li><a href="mailto:scrapchacha20@gmail.com">scrapchacha20@gmail.com</a></li>
                         <li><a href="https://wa.me/923103863309">03103863309</a></li>
                     </ul>
+                    <!-- Updated Social Icons -->
                     <div class="social-icons" style="margin-top: 15px;">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/scrapchacha" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/scrap_chacha/" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -993,7 +1012,6 @@
             requests: [],
 
             init: function() {
-                // Load rates from local storage or use default
                 const storedRates = localStorage.getItem('scrapRates');
                 if (storedRates) {
                     this.rates = JSON.parse(storedRates);
@@ -1001,7 +1019,6 @@
                     this.rates = [...this.defaultRates];
                 }
 
-                // Load requests
                 const storedRequests = localStorage.getItem('scrapRequests');
                 if (storedRequests) {
                     this.requests = JSON.parse(storedRequests);
@@ -1012,22 +1029,11 @@
                 this.renderAdminRates();
             },
 
-            // Navigation
             navTo: function(sectionId) {
-                // Hide all sections
                 document.querySelectorAll('section').forEach(sec => sec.classList.remove('active-section'));
-                // Show target
                 document.getElementById(sectionId).classList.add('active-section');
-                
-                // Update active link
                 document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
-                // Simple logic to highlight nav item (approximate match)
-                // In a real app, bind IDs strictly
-                
-                // Scroll to top
                 window.scrollTo(0, 0);
-
-                // Close mobile menu if open
                 document.getElementById('navLinks').classList.remove('active');
             },
 
@@ -1035,7 +1041,6 @@
                 document.getElementById('navLinks').classList.toggle('active');
             },
 
-            // Rates Logic
             renderRates: function(filterText = '') {
                 const tbody = document.getElementById('ratesTableBody');
                 tbody.innerHTML = '';
@@ -1068,7 +1073,6 @@
                 this.renderRates(category);
             },
 
-            // Pickup Logic
             handlePickupSubmit: function(e) {
                 e.preventDefault();
                 
@@ -1101,7 +1105,6 @@
                 }, 3000);
             },
 
-            // Admin Logic
             adminLogin: function() {
                 document.getElementById('adminLoginModal').style.display = 'flex';
             },
@@ -1119,7 +1122,6 @@
             renderAdminRequests: function() {
                 const tbody = document.getElementById('adminRequestsBody');
                 tbody.innerHTML = '';
-                // Show latest first
                 [...this.requests].reverse().forEach(req => {
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
@@ -1139,7 +1141,6 @@
             },
 
             whatsappClient: function(phone, name) {
-                // Remove leading 0 or spaces
                 let p = phone.replace(/\D/g, '');
                 if(p.startsWith('0')) p = '92' + p.substring(1);
                 window.open(`https://wa.me/${p}?text=Hello ${name}, this is ScrapChacha confirming your pickup.`, '_blank');
@@ -1163,7 +1164,7 @@
             updateRate: function(index, newPrice) {
                 this.rates[index].price = parseInt(newPrice);
                 localStorage.setItem('scrapRates', JSON.stringify(this.rates));
-                this.renderRates(); // Refresh frontend view
+                this.renderRates();
                 this.showToast('Price Updated');
             },
 
@@ -1206,10 +1207,38 @@
                     document.getElementById('admin-requests').style.display = 'none';
                     document.getElementById('admin-manage').style.display = 'block';
                 }
+            },
+
+            // New Backup Feature: Download Requests as CSV
+            downloadBackup: function() {
+                if(this.requests.length === 0) {
+                    alert("No requests to backup yet.");
+                    return;
+                }
+
+                // Create CSV Header
+                let csvContent = "data:text/csv;charset=utf-8,";
+                csvContent += "Date,Name,Phone,Address,Type,Quantity,Preferred Time,Status\n";
+
+                // Add Rows
+                this.requests.forEach(row => {
+                    // Escape commas in address to prevent CSV breaking
+                    let cleanAddress = row.address.replace(/,/g, " "); 
+                    let rowString = `${row.date},${row.name},${row.phone},${cleanAddress},${row.type},${row.qty},${row.preferredTime},${row.status}`;
+                    csvContent += rowString + "\n";
+                });
+
+                // Create download link
+                const encodedUri = encodeURI(csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "scrapchacha_requests_backup.csv");
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             }
         };
 
-        // Initialize App
         document.addEventListener('DOMContentLoaded', () => {
             app.init();
         });
